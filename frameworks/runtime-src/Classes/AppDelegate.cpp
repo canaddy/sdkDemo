@@ -43,6 +43,13 @@
 #include "cocos/scripting/js-bindings/manual/platform/ios/JavaScriptObjCBridge.h"
 #endif
 
+// ੕ف१෈կ
+#if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+#include "bugly/CrashReport.h"
+#elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+#include "CrashReport.h"
+#endif
+
 // #define USE_AUDIO_ENGINE 1
 // #define USE_SIMPLE_AUDIO_ENGINE 1
 
@@ -83,6 +90,10 @@ void AppDelegate::initGLContextAttrs()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
+    log("_-------------1---");
+    CrashReport::initCrashReport("3fc6d7a4f1", true);
+    log("_----------------");
+    CrashReport::log(CrashReport::CRLogLevel::Error,"1","测试");
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();

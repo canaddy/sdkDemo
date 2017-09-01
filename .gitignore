@@ -1,0 +1,17 @@
+.idea/
+*.obj
+*.class
+*.tlog
+*.pdb
+**/build/
+**/Debug.*/
+**/.vs/
+**/UpgradeLog*.htm
+Client/public/
+Client/simulator/
+**/ndkBuild/
+/image/
+/builds/
+/clientDebug/
+/clientRelease/
+**/node_modules/
