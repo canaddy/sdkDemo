@@ -26,8 +26,18 @@ package org.cocos2dx.javascript;
 import org.cocos2dx.lib.Cocos2dxActivity;
 import org.cocos2dx.lib.Cocos2dxGLSurfaceView;
 
+import android.os.Bundle;
+import com.tencent.bugly.crashreport.CrashReport;
+
 public class AppActivity extends Cocos2dxActivity {
-	
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        CrashReport.initCrashReport(getApplicationContext());
+    }
+
     @Override
     public Cocos2dxGLSurfaceView onCreateView() {
         Cocos2dxGLSurfaceView glSurfaceView = new Cocos2dxGLSurfaceView(this);
