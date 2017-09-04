@@ -90,10 +90,15 @@ void AppDelegate::initGLContextAttrs()
 
 bool AppDelegate::applicationDidFinishLaunching()
 {
-    log("_-------------1---");
-    CrashReport::initCrashReport("3fc6d7a4f1", true);
-    log("_----------------");
+
+    #if (CC_TARGET_PLATFORM == CC_PLATFORM_ANDROID)
+    CrashReport::initCrashReport("f400faa0c5", true);
     CrashReport::log(CrashReport::CRLogLevel::Error,"1","测试");
+    #elif (CC_TARGET_PLATFORM == CC_PLATFORM_IOS)
+        CrashReport::initCrashReport("3fc6d7a4f1", true);
+        CrashReport::log(CrashReport::CRLogLevel::Error,"1","测试");
+    #endif
+
     // initialize director
     auto director = Director::getInstance();
     auto glview = director->getOpenGLView();
